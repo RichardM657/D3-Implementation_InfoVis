@@ -166,12 +166,18 @@ function createScatterplot(data) {
   circles.attr("fill", function(d) { return getDisasterColor(d["Disaster.Group"]); });  // Color
   circles.attr("stroke", "white");
   circles.attr("stroke-width", 0.5);
+  
+  // Add fade-in animation
+  circles.attr("opacity", 0);
+  circles.transition().duration(600).attr("opacity", 1);
 
   // Add hover effect and tooltip
   circles.on("mouseover", function(event, d) {
     // Make circle bigger when hovering
-    d3.select(this).attr("r", 6);
-    d3.select(this).attr("stroke-width", 2);
+    d3.select(this)
+      .transition().duration(200)
+      .attr("r", 6)
+      .attr("stroke-width", 2);
     
     // Show tooltip
     var deathCount = d.Total_Deaths.toLocaleString();
@@ -186,16 +192,18 @@ function createScatterplot(data) {
     tooltip.html(tooltipHtml);
     tooltip.style("left", (event.pageX + 10) + "px");
     tooltip.style("top", (event.pageY - 28) + "px");
-    tooltip.style("opacity", 0.95);
+    tooltip.transition().duration(200).style("opacity", 0.95);
   });
 
   // Remove hover effect and tooltip when mouse leaves
   circles.on("mouseout", function(event, d) {
     // Make circle normal size
-    d3.select(this).attr("r", 3);
-    d3.select(this).attr("stroke-width", 0.5);
+    d3.select(this)
+      .transition().duration(300)
+      .attr("r", 3)
+      .attr("stroke-width", 0.5);
     
     // Hide tooltip
-    tooltip.style("opacity", 0);
+    tooltip.transition().duration(300).style("opacity", 0);
   });
 }
