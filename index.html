@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<!-- -->
+  	<meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<title>Total Deaths Scatterplot</title>
+
+  	<!-- Read in style sheet -->
+  	<link rel="stylesheet" href="./style.css">
+</head>
+
+
+<body>
+	<!-- Header -->
+  	<h1 class="page-header">Global Disaster Impact Analysis</h1>
+
+	<!-- Description section -->
+	<div class="description-section">
+		<h2>About this visualization</h2>
+		<p><strong>What does this diagram show?</strong> This scatterplot displays disaster events from around the world, visualizing the relationship between time (x-axis) and the total number of deaths (y-axis) for each event.</p>
+		
+		<p><strong>Color coding:</strong></p>
+		<ul>
+			<li><span class="color-box natural"></span> <strong>Green</strong> = Natural disasters (earthquakes, floods, storms, etc.)</li>
+			<li><span class="color-box technological"></span> <strong>Red</strong> = Technological disasters (accidents, industrial incidents, transport accidents, etc.)</li>
+		</ul>
+		
+		<p><strong>Interactive features:</strong> Use the dropdown menu below to filter the visualization by country. Hover over any data point to see detailed information about the specific event (country, year, total deaths, disaster group, subgroup, type, and subtype).</p>
+	</div>
+
+	<!-- Dropdown for selection of countries  -->
+	<label for="dropdown" style="display: block; margin-bottom: 8px; font-weight: bold;">Select Country:</label>
+  	<select id="dropdown"></select>
+
+	<!-- Container for Scatterplot -->
+  	<div id="scatter" class="responsive-svg-container"></div>
+
+	<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+	<script type="module" src="./js/script.js"></script>
+</body>
+</html>
