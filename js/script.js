@@ -13,7 +13,7 @@ let currentCountry = null;
 
 // Load CSV data and initialize visualization
 function loadData() {
-  d3.csv("../data/df_subset.csv").then(function(data) {
+  d3.csv("data/df_subset.csv").then(function(data) {
     console.log("Data loaded successfully!");
     console.log("Total rows:", data.length);
 
