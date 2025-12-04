@@ -78,7 +78,7 @@ function createScatterplot(data) {
   var translateY = marginTop;
   chart.attr("transform", "translate(" + translateX + "," + translateY + ")");
 
-  // Add title above the chart
+  // Add title above the chart with fade-in animation
   var titleText = currentCountry || "All Countries";
   var titleY = marginTop - 15;
   svg.append("text")
@@ -88,7 +88,11 @@ function createScatterplot(data) {
     .attr("font-weight", "bold")
     .attr("fill", "#2c3e50")
     .style("text-anchor", "middle")
-    .text(titleText);
+    .style("opacity", 0)
+    .text(titleText)
+    .transition()
+    .duration(800)
+    .style("opacity", 1);
 
   // Create scales for positioning data points
   // X scale: maps years to pixels (horizontal)
